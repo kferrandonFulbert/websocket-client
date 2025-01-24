@@ -35,11 +35,8 @@ Le projet est constitué d'un seul fichier HTML intégrant le code JavaScript n�
 
 ## Exemple de Serveur WebSocket
 
-Le projet utilise `wss://echo.websocket.events` comme serveur par défaut. Ce serveur retourne chaque message qu'il reçoit. Vous pouvez remplacer l'URL WebSocket par celle de votre propre serveur si nécessaire.
+Le projet utilise `wss://echo.websocket.events` comme serveur par défaut. Ce serveur retourne chaque message qu'il reçoit (un echo). 
 
-## Captures d'Écran
-
-*À inclure si vous avez des images pour montrer le fonctionnement de la page.*
 
 ## Licence
 
