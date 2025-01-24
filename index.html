@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test WebSocket</title>
+</head>
+<body>
+    <h1>Test WebSocket</h1>
+    <textarea id="output" rows="10" cols="50" readonly></textarea><br>
+    <input id="input" type="text" placeholder="Entrez un message">
+    <button id="send">Envoyer</button>
+
+    <script>
+        const output = document.getElementById('output');
+        const input = document.getElementById('input');
+        const sendButton = document.getElementById('send');
+
+        const socket = new WebSocket('wss://echo.websocket.events');
+
+        socket.onopen = () => {
+            output.value += 'Connexion établie\n';
+        };
+
+        socket.onmessage = (event) => {
+            output.value += `Serveur : ${event.data}\n`;
+        };
+
+        socket.onerror = (error) => {
+            output.value += `Erreur : ${error.message}\n`;
+        };
+
+        socket.onclose = () => {
+            output.value += 'Connexion fermée\n';
+        };
+
+        sendButton.addEventListener('click', () => {
+            const message = input.value;
+            socket.send(message);
+            output.value += `Vous : ${message}\n`;
+            input.value = '';
+        });
+    </script>
+</body>
+</html>
